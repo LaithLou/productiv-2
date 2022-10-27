@@ -12,14 +12,7 @@ import EditableTodo from "./EditableTodo";
  */
 
 function EditableTodoList() {
-  return (
-      <div>
-        {/*   FIXME  */}
-        <EditableTodo />
-        <EditableTodo />
-        <EditableTodo />
-      </div>
-  );
+  return <div>{/*   FIXME  */}</div>;
 }
 
 export default EditableTodoList;
