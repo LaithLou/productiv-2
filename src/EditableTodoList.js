@@ -11,12 +11,12 @@ import EditableTodo from "./EditableTodo";
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
 
-function EditableTodoList(todos) {
+function EditableTodoList({todos}) {
   return (
     <section>
       {todos.map((todo) => (
         <div>
-          <EditableTodo todo={todo} />
+          <EditableTodo todo={todo} key={todo.id} />
         </div>
       ))}
     </section>

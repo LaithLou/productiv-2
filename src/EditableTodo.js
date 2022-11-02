@@ -12,7 +12,7 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo() {
+function EditableTodo({todo}) {
   const [isEditing, setIsEditing] = useState(false);
   /** Toggle if this is being edited */
   function toggleEdit() {
@@ -45,7 +45,7 @@ function EditableTodo() {
               Del
             </button>
           </div>
-          <Todo />
+          <Todo todo={todo} key={todo.id}/>
         </div>
       )}
     </div>

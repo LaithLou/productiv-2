@@ -16,8 +16,8 @@ import TodoForm from "./TodoForm";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp(initialTodos) {
-  const [todos, setTodos] = useState(initialTodos);
+function TodoApp({initialTodos}) {
+    const [todos, setTodos] = useState(initialTodos);
   /** add a new todo to list */
   function create(newTodo) {}
 
@@ -26,6 +26,8 @@ function TodoApp(initialTodos) {
 
   /** delete a todo by id */
   function remove(id) {}
+
+  console.log("Todos = ", todos);
 
   return (
     <main className="TodoApp">
