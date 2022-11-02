@@ -16,8 +16,8 @@ import TodoForm from "./TodoForm";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp() {
-  const [todos, setTodos] = useState(null);
+function TodoApp(initialTodos) {
+  const [todos, setTodos] = useState(initialTodos);
   /** add a new todo to list */
   function create(newTodo) {}
 
@@ -32,7 +32,7 @@ function TodoApp() {
       <div className="row">
         <div className="col-md-6">
           {todos ? (
-            <EditableTodoList />
+            <EditableTodoList todos={todos} />
           ) : (
             <span className="text-muted">You have no todos.</span>
           )}
