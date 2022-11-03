@@ -12,8 +12,8 @@ function Todo({todo}) {
   console.log("todo right here = ", todo);
   return (
       <div className="Todo">
-        <div><b>{todo.title}</b> <small>(priority: 1)</small></div>
-        <div><small>Description.</small></div>
+        <div><b>{todo.title}</b> <small>(priority: {todo.priority})</small></div>
+        <div><small>{todo.description}</small></div>
       </div>
   );
 }
