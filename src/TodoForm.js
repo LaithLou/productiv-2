@@ -9,16 +9,19 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm() {
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    priority: "",
-  });
+const INITIAL_FORM_DATA = {
+  title: "",
+  description: "",
+  priority: "",
+}
+
+function TodoForm({ handleSave }) {
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   console.log("in handleChange", formData);
 
   /** Update form input. */
   function handleChange(evt) {
+    console.log("inside handleChange")
     const { name, value } = evt.target;
     setFormData((fData) => ({
       ...fData,
@@ -28,9 +31,10 @@ function TodoForm() {
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
+    console.log("inside submit");
     evt.preventDefault();
-    //update a state form a parent component
-    //call handelSave fn
+    handleSave(formData)
+    setFormData(INITIAL_FORM_DATA)
   }
 
   return (

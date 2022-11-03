@@ -18,8 +18,14 @@ import TodoForm from "./TodoForm";
 
 function TodoApp({initialTodos}) {
     const [todos, setTodos] = useState(initialTodos);
+
   /** add a new todo to list */
-  function create(newTodo) {}
+  function create(newTodo) {
+    console.log("inside create")
+
+    let addTodo = {...newTodo, id:uuid()};
+    setTodos(todos => [addTodo, ...todos])
+  }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {}
@@ -48,7 +54,7 @@ function TodoApp({initialTodos}) {
           </section>
           <section>
             <h3 className="mb-3">Add Nü</h3>
-            <TodoForm />
+            <TodoForm handleSave={create}/>
           </section>
         </div>
       </div>
