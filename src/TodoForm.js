@@ -5,6 +5,7 @@ import React, { useState } from "react";
  * Props:
  * - initialFormData
  * - handleSave: function to call in parent.
+ * - todo: todo being edited
  *
  * { TodoApp, EditableTodo } -> TodoForm
  */
@@ -15,9 +16,13 @@ const INITIAL_FORM_DATA = {
   priority: "",
 }
 
-function TodoForm({ handleSave }) {
-  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
-  console.log("in handleChange", formData);
+function TodoForm({ handleSave, todo }) {
+  const [formData, setFormData] = useState(
+    todo ? todo:
+    INITIAL_FORM_DATA);
+
+
+    console.log("in handleChange", formData);
 
   /** Update form input. */
   function handleChange(evt) {
@@ -36,6 +41,7 @@ function TodoForm({ handleSave }) {
     handleSave(formData)
     setFormData(INITIAL_FORM_DATA)
   }
+
 
   return (
     <form className="NewTodoForm" onSubmit={handleSubmit}>

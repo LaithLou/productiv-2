@@ -12,7 +12,7 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo({ todo, remove }) {
+function EditableTodo({ todo, remove, update }) {
   const [isEditing, setIsEditing] = useState(false);
   /** Toggle if this is being edited */
   function toggleEdit() {
@@ -25,12 +25,23 @@ function EditableTodo({ todo, remove }) {
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) {}
+  function handleSave(formData) {
+    //spreading the todo to maintain it's id, change other keys, but be very
+    //explicit about what we are allowing to be changed
+    let updatedTodo = {...todo,
+      title: formData.title,
+      description: formData.description,
+      priority: formData.priority
+    }
+    //{ id, title, description, priority }
+    update(updatedTodo);
+    setIsEditing(false);
+  }
 
   return (
     <div className="EditableTodo">
       {isEditing === true ? (
-        <TodoForm />
+        <TodoForm todo={todo} handleSave={handleSave}/>
       ) : (
         <div className="mb-3">
           <div className="float-end text-sm-end">
