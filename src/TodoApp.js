@@ -29,7 +29,10 @@ function TodoApp({ initialTodos }) {
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    setTodos((todos) => [updatedTodo, ...todos])
+    // Find matching todo by id and replace with updatedTodo.
+    setTodos((todos) => 
+      todos.map((todo) => todo.id === updatedTodo.id ? updatedTodo : todo)
+    )
   }
 
   /** delete a todo by id */
